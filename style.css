@@ -1,0 +1,407 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI,sans-serif;
+}
+
+body{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(140,0,255,.25), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(90,0,255,.18), transparent 40%),
+    #050505;
+  color:#fff;
+  overflow:hidden;
+}
+
+/* NAVBAR (FIX: NO BLUR) */
+.navbar{
+  position:fixed;
+  top:25px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  max-width:1100px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:14px 25px;
+
+  background:rgba(10,10,10,.9); /* 🔥 solid */
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+
+  z-index:999;
+}
+
+.logo{
+  font-size:18px;
+  color:#fff;
+}
+
+/* MENU */
+.nav-links{
+  display:flex;
+  gap:18px;
+  list-style:none;
+}
+
+.nav-links a{
+  padding:8px 18px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:.3s;
+  color:#ccc;
+  text-decoration:none;
+}
+
+.nav-links a:hover{
+  background:rgba(255,255,255,.08);
+  color:#fff;
+}
+
+.nav-links a.active{
+  background:rgba(255,255,255,.15);
+  color:#fff;
+}
+
+/* MOBILE */
+.menu-btn{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* PAGE */
+.page{
+  position:absolute;
+  inset:0;
+  padding-top:120px;
+  overflow-y:auto;
+  display:none;
+  z-index:1;
+}
+
+.page.active{
+  display:block;
+  z-index:3;
+}
+
+/* SCROLL HIDE */
+.page::-webkit-scrollbar{display:none;}
+.page{scrollbar-width:none;}
+
+/* HERO */
+.hero{
+  height:calc(100vh - 120px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:55px;
+  margin-bottom:20px;
+
+  background:linear-gradient(90deg,#fff,#c66dff,#fff);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  max-width:600px;
+  color:#cfcfcf;
+  margin-bottom:30px;
+}
+
+/* BUTTON */
+.btn{
+  padding:12px 28px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  background:linear-gradient(90deg,#7d00ff,#c200ff);
+  color:#fff;
+  transition:.3s;
+  box-shadow:0 8px 25px rgba(140,0,255,.4);
+}
+
+.btn:hover{
+  transform:scale(1.08);
+}
+
+/* SECTION */
+.section{
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+  padding:60px 20px;
+}
+
+.section h2{
+  font-size:34px;
+  margin-bottom:20px;
+}
+
+.section p{
+  color:#bbb;
+}
+
+/* GRID (FIX: 3 KOLOM) */
+.grid{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(10px);
+
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;
+
+  overflow:hidden;
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 15px 35px rgba(140,0,255,.25);
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card h3{
+  padding:15px;
+  font-size:15px;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(6px);
+
+  opacity:0;
+  visibility:hidden;
+  transition:.4s;
+
+  z-index:9999;
+}
+
+.modal.show{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal img{
+  max-width:85%;
+  max-height:85vh;
+  border-radius:16px;
+
+  border:1px solid rgba(180,0,255,.25);
+
+  transform:scale(.85);
+  opacity:0;
+
+  transition:.45s cubic-bezier(.22,1,.36,1);
+
+  /* 🔥 GLOW HALUS */
+  box-shadow:
+    0 0 0 1px rgba(180,0,255,.15),
+    0 0 25px rgba(140,0,255,.25),
+    0 20px 60px rgba(0,0,0,.6);
+}
+
+/* saat popup aktif */
+.modal.show img{
+  transform:scale(1);
+  opacity:1;
+
+  /* glow sedikit lebih hidup saat muncul */
+  box-shadow:
+    0 0 0 1px rgba(180,0,255,.25),
+    0 0 35px rgba(140,0,255,.35),
+    0 25px 80px rgba(0,0,0,.7);
+}
+.modal img{
+  outline:1px solid rgba(180,0,255,.15);
+}
+
+/* PAGE ANIMATION */
+.page.enter-right{
+  animation:slideRight .6s forwards;
+}
+
+.page.enter-left{
+  animation:slideLeft .6s forwards;
+}
+
+.page.exit-left{
+  animation:outLeft .6s forwards;
+}
+
+.page.exit-right{
+  animation:outRight .6s forwards;
+}
+
+@keyframes slideRight{
+  from{transform:translateX(100%);opacity:.5;}
+  to{transform:translateX(0);opacity:1;}
+}
+
+@keyframes slideLeft{
+  from{transform:translateX(-100%);opacity:.5;}
+  to{transform:translateX(0);opacity:1;}
+}
+
+@keyframes outLeft{
+  from{transform:translateX(0);}
+  to{transform:translateX(-100%);opacity:.3;}
+}
+
+@keyframes outRight{
+  from{transform:translateX(0);}
+  to{transform:translateX(100%);opacity:.3;}
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:500px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:768px){
+
+.nav-links{
+  position:absolute;
+  top:70px;
+  right:-100%;
+  width:200px;
+
+  flex-direction:column;
+  padding:20px;
+
+  background:rgba(0,0,0,.9);
+  border-radius:10px;
+
+  transition:.3s;
+}
+
+.nav-links.show{
+  right:0;
+}
+
+.menu-btn{
+  display:block;
+}
+
+.hero h1{
+  font-size:40px;
+}
+
+}
+
+/* SPOTLIGHT EFFECT */
+.card{
+  position:relative;
+  overflow:hidden;
+}
+
+/* layer spotlight */
+.card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+
+  background:radial-gradient(
+    circle at var(--x,50%) var(--y,50%),
+    rgba(180,0,255,.25),
+    transparent 40%
+  );
+
+  opacity:0;
+  transition:opacity .3s;
+  pointer-events:none;
+}
+
+/* aktif saat hover */
+.card:hover::after{
+  opacity:1;
+}
+
+/* container harus relative */
+.nav-links{
+  position:relative;
+  display:flex;
+  gap:18px;
+  list-style:none;
+}
+
+/* tombol */
+.nav-links a{
+  padding:8px 18px;
+  border-radius:999px;
+  cursor:pointer;
+  color:#ccc;
+  text-decoration:none;
+  position:relative;
+  z-index:2;
+}
+
+/* highlight glow */
+.nav-highlight{
+  transition:none;
+  position:absolute;
+  height:38px;
+  border-radius:999px;
+
+  background:linear-gradient(90deg,#7d00ff,#c200ff);
+
+  box-shadow:
+    0 0 15px rgba(140,0,255,.6),
+    0 0 30px rgba(140,0,255,.4);
+
+  top:50%;
+  transform:translateY(-50%);
+
+  left:0;
+  width:0;
+
+  transition:all .35s cubic-bezier(.22,1,.36,1);
+
+  z-index:1;
+  
+}

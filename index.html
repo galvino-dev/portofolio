@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">PORTOFOLIO</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('homePage')">Home</a></li>
+    <li><a onclick="showPage('aboutPage')">Tentang</a></li>
+    <li><a onclick="showPage('certificatePage')">Sertifikat</a></li>
+    <li><a onclick="showPage('goalPage')">Tujuan</a></li>
+    <div class="nav-highlight"></div>
+  </ul>
+
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- HOME -->
+<section class="page active" id="homePage">
+  <div class="hero">
+    <h1>Jefferson Galvino Hansdava</h1>
+    <p>
+      Menampilkan proses belajar, sertifikat, dan arah pengembangan diri
+      dalam tampilan modern elegan.
+    </p>
+    <button class="btn" onclick="showPage('certificatePage')">
+      Lihat Sertifikat
+    </button>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="page" id="aboutPage">
+  <div class="section">
+    <h2>Tentang Saya</h2>
+    <p>
+      Saya adalah seorang siswa SMK dengan ketertarikan besar di bidang komputer yang terus berusaha mengembangkan diri melalui pembelajaran teknologi. Memiliki minat pada hardware, mulai dari perakitan, perawatan, hingga memahami cara kerja komponen komputer secara mendalam. Selain itu, aktif meningkatkan skill di bidang digital dengan mempelajari berbagai tools modern, termasuk pemanfaatan kecerdasan buatan (AI) untuk produktivitas, kreativitas, dan solusi inovatif. Berkomitmen untuk terus belajar, beradaptasi, dan berkembang mengikuti kemajuan dunia teknologi.
+    </p>
+  </div>
+</section>
+
+<!-- CERTIFICATE -->
+<section class="page" id="certificatePage">
+  <div class="section">
+    <h2>Sertifikat</h2>
+
+    <div class="grid">
+
+      <div class="card" onclick="openModal(this)">
+        <img src="img/sertifikat1.jpg">
+        <h3>Google Certificates Educator Level 1 - Google</h3>
+      </div>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="img/sertifikat2.jpg">
+        <h3>Google Certificates Educator Level 2 - Google</h3>
+      </div>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="img/sertifikat3.jpg">
+        <h3>Gemini Certificates - Google</h3>
+      </div>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="img/sertifikat4.jpg">
+        <h3>Basic HTML - Skilvul</h3>
+      </div>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="img/sertifikat5.jpg">
+        <h3>Algorithm and Data Structure's Python - Skilvul</h3>
+      </div>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="img/sertifikat6.jpg">
+        <h3>Basic C++ - Skilvul</h3>
+      </div>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="img/sertifikat7.jpg">
+        <h3>Cyber Security</h3>
+      </div>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="img/sertifikat8.jpg">
+        <h3>Public Speaking</h3>
+      </div>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="img/sertifikat9.jpg">
+        <h3>Business Strategy</h3>
+      </div>
+
+      <div class="card" onclick="openModal(this)">
+        <img src="img/sertifikat10.jpg">
+        <h3>Mobile App Design</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section class="page" id="goalPage">
+  <div class="section">
+    <h2>Arah Pengembangan</h2>
+    <p>
+      Fokus saya adalah meningkatkan skill teknologi dan desain,
+      serta menciptakan karya digital yang bermanfaat dan profesional.
+    </p>
+  </div>
+</section>
+
+<!-- Popup -->
+<div class="modal" id="modal" onclick="closeModal()">
+  <img id="modalImg">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
