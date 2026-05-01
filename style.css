@@ -315,3 +315,38 @@ body{
 }
 
 }
+
+.watermark{
+  position:fixed;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+
+  font-size:12px;
+  letter-spacing:.5px;
+
+  color:rgba(255,255,255,.35);
+
+  pointer-events:none; /* tidak ganggu klik */
+
+  text-align:center;
+
+  /* glow halus */
+  text-shadow:
+    0 0 8px rgba(140,0,255,.3);
+}
+
+/* versi hover aktif (kalau mau clickable) */
+.watermark.active{
+  pointer-events:auto;
+  cursor:pointer;
+  color:#bbb;
+
+  transition:.3s;
+}
+
+.watermark.active:hover{
+  color:#fff;
+  text-shadow:
+    0 0 12px rgba(180,0,255,.6);
+}
