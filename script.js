@@ -158,3 +158,19 @@ window.addEventListener("load", ()=>{
   activeLink.classList.add("active");
   setTarget(activeLink);
 });
+
+/* AUTO CLOSE MENU SAAT KLIK */
+links.forEach(link=>{
+  link.addEventListener("click", ()=>{
+    document.getElementById("navLinks").classList.remove("show");
+  });
+});
+
+/* DISABLE HOVER EFFECT DI TOUCH DEVICE */
+function isTouchDevice(){
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+}
+
+if(isTouchDevice()){
+  highlight.style.display = "none";
+}
