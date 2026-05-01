@@ -335,28 +335,48 @@ body{
 
 @media(max-width:768px){
 
-/* NAVBAR LEBIH KECIL */
-.navbar{
-  top:10px;
-  padding:10px 15px;
-  border-radius:12px;
+.nav-links{
+  position:fixed;
+  top:0;
+  left:-100%;
+
+  height:100vh;
+  width:220px;
+
+  flex-direction:column;
+  gap:20px;
+
+  padding:80px 20px;
+
+  background:rgba(10,10,10,.95);
+  border-right:1px solid rgba(255,255,255,.08);
+
+  transition:.4s cubic-bezier(.22,1,.36,1);
+  z-index:9999;
 }
 
-/* LOGO LEBIH KECIL */
-.logo{
-  font-size:14px;
+/* saat aktif */
+.nav-links.show{
+  left:0;
 }
 
-/* BUTTON MENU */
-.menu-btn{
-  font-size:22px;
+/* item lebih besar */
+.nav-links a{
+  padding:12px 15px;
+  font-size:16px;
+  border-radius:10px;
+}
+
+/* highlight dimatikan */
+.nav-highlight{
+  display:none;
+}
+
 }
 
 /* JARAK SECTION BIAR GAK KETUTUP */
 .page{
   padding-top:90px;
-}
-
 }
 
 .nav-links.show{
@@ -488,4 +508,19 @@ body{
 @keyframes pulse{
   0%,100%{filter:brightness(1);}
   50%{filter:brightness(1.15);}
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+  z-index:999;
+}
+
+.overlay.show{
+  opacity:1;
+  visibility:visible;
 }

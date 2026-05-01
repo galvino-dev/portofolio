@@ -8,7 +8,11 @@ const pageOrder = [
 ];
 
 function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("show");
+  const nav = document.getElementById("navLinks");
+  const overlay = document.querySelector(".overlay");
+
+  nav.classList.toggle("show");
+  overlay.classList.toggle("show");
 }
 
 function showPage(pageId){
